@@ -1,19 +1,16 @@
 const form = document.querySelector(".login-form");
 const formData = {};
-const formElements = form.elements;
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
+
+  const formElements = form.elements;
   for (let element of formElements) {
-    if (element.type !== "submit") {
-    }
-    if (element.value.trim() === "") {
-      alert("Всi поля мають бути заповненні!");
-      return;
+    if (element.type !== "submit" && element.value.trim() === "") {
+      return alert("Всi поля мають бути заповненні!");
     }
     formData[element.name] = element.value;
   }
-});
 
-console.log(formData);
-form.reset();
+  form.reset();
+});
